@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Survey</title>
+</head>
+<body>
+    <fieldset>
+        <legend>Dojo Survey</legend>
+        {% with messages = get_flashed_messages() %}
+            {% if messages %}
+            {% for message in messages %}
+                <p style="color:red;">{{message}}</p>
+            {% endfor %}
+            {% endif %}
+        {% endwith %}
+        <form method="post" action="/results">
+            <label>Your Name: <input type="text" name="name" placeholder="Your name" /></label><br><br>
+            <label>Location: <select name="location">
+                <option>Seattle</option>
+                <option>San Jose</option>
+                <option>Dallas</option>
+                <option>Chicago</option>
+                <option>DC</option>
+                <option>Tulsa</option>
+                <option>Burbank</option>
+            </select></label><br><br>
+            <label>Favorite Language: <select name="language">
+                    <option>C++</option>
+                    <option>JavaScript</option>
+                    <option>Python</option>
+                    <option>HTML</option>
+                    <option>Java</option>
+                    <option>Ruby</option>
+                    <option>VisualBasic</option>
+                </select></label><br><br>
+            <label>Comment (optional):<br><textarea name="comment"></textarea></label><br><br>
+            <input type="submit" value="Submit Survey" />
+                
+        </form>
+    </fieldset>    
+</body>
+</html>
